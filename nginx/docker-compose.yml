@@ -1,0 +1,19 @@
+services:
+  backend1:
+    build:
+      context: backend
+      target: builder
+
+  nginx:
+    container_name: nginx
+    image: nginx
+    volumes:
+      - nginx:/etc/nginx
+    ports:
+      - 20080:80
+    depends_on: 
+      - backend1
+
+volumes:
+  nginx:
+    name: nginx
