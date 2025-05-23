@@ -10,8 +10,14 @@ services:
     command: -H unix:///var/run/docker.sock
     restart: always
     networks:
-      - default
-      - outside
+      - applications
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portainer.rule=Host(`portainer.example.com`)"
+      - "traefik.http.routers.portainer.entrypoints=https"
+      - "traefik.http.routers.portainer.tls=true"
+      - "traefik.http.services.portainer.loadbalancer.server.port=9000"
+      - "traefik.http.routers.portainer.tls.certresolver=myresolver" 
 
 volumes:
   portainer_data:
@@ -19,6 +25,6 @@ volumes:
     name: portainer_data
 
 networks:
-  outside:
+  applications:
     external: true
-    name: outside
+
