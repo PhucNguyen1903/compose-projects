@@ -1,0 +1,49 @@
+# Gradle build system
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Kotlin specific
+*.kotlin_module
+
+# Kotlin/Native (if applicable)
+.kotlinc/
+.cxx/
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code settings folder (if used)
+.vscode/
+
+# Logs
+*.log
+
+# OS files (macOS)
+.DS_Store
+
+# SonarQube reports (optional to ignore local scanner reports)
+.sonar/
+
+# Test reports and coverage data
+build/reports/
+build/test-results/
+build/jacoco/
+
+# Docker related
+docker-compose.override.yml
+.dockerignore
+
+# Ignore local environment or property files you don't want to commit
+local.properties
+gradle.properties
+
+# Skip wrapper jar except the wrapper properties, but exceptions above
+!gradle-wrapper.jar
+
+# Others
+out/
+
